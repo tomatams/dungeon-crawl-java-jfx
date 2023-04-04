@@ -42,4 +42,8 @@ public class StatusPane {
     public void setHealthValue(String text) {
         healthValueLabel.setText(text);
     }
+
+    public void setItemValueInInventory(String text) {
+        this.itemValueInInventory.setText(text);
+    }
 }
