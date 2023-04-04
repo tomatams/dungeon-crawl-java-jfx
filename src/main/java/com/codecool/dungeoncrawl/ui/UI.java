@@ -1,6 +1,7 @@
 package com.codecool.dungeoncrawl.ui;
 
 import com.codecool.dungeoncrawl.data.Cell;
+import com.codecool.dungeoncrawl.data.actors.Player;
 import com.codecool.dungeoncrawl.logic.GameLogic;
 import com.codecool.dungeoncrawl.ui.elements.MainStage;
 import com.codecool.dungeoncrawl.ui.keyeventhandler.KeyHandler;
@@ -44,7 +45,19 @@ public class UI {
         for (KeyHandler keyHandler : keyHandlers) {
             keyHandler.perform(keyEvent, logic.getMap());
         }
+        moveMonsters();
         refresh();
+    }
+
+    public void moveMonsters() {
+        for (int x = 0; x < logic.getMapWidth(); x++) {
+            for (int y = 0; y < logic.getMapHeight(); y++) {
+                Cell cell = logic.getCell(x, y);
+                if (cell.getActor() != null && !(cell.getActor() instanceof Player)) {
+                    cell.getActor().move();
+                }
+            }
+        }
     }
 
     public void refresh() {

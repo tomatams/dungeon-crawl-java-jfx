@@ -10,6 +10,10 @@ public class Skeleton extends Actor {
     }
 
     @Override
+    public void move() {
+        super.move(1,0);
+    }
+    @Override
     public String getTileName() {
         return "skeleton";
     }

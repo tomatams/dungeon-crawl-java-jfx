@@ -8,6 +8,11 @@ public class Bat extends Actor{
     public Bat(Cell cell) {
         super(cell, baseHealth, baseDamage);
     }
+
+    @Override
+    public void move() {
+        super.move(1,0);
+    }
     @Override
     public String getTileName() {
         return "bat";
