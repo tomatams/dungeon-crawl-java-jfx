@@ -13,8 +13,8 @@ public class Player extends Actor {
     private final static int baseDamage = 5;
     
     public Player(Cell cell) {
-        itemList = new HashMap<>();
         super(cell, baseHealth, baseDamage);
+        itemList = new HashMap<>();
     }
 
     public String getTileName() {
