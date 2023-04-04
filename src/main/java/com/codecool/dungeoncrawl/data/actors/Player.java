@@ -7,10 +7,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Player extends Actor {
-    Map<String, Integer> itemList;
+
+    private Map<String, Integer> itemList;
+    private final static int baseHealth = 15;
+    private final static int baseDamage = 5;
+    
     public Player(Cell cell) {
-        super(cell);
         itemList = new HashMap<>();
+        super(cell, baseHealth, baseDamage);
     }
 
     public String getTileName() {
