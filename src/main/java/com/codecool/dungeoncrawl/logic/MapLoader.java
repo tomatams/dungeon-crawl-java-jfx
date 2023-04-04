@@ -46,7 +46,7 @@ public class MapLoader {
                             break;
                         case 'H':
                             cell.setType(CellType.FLOOR);
-                            new Potion("Health potion", cell);
+                            new Potion("potion", cell);
                             break;
                         case 'K':
                             cell.setType(CellType.FLOOR);

@@ -14,4 +14,8 @@ public class Potion extends Item{
     public String getTileName() {
         return super.isPickedUp()? "floor" : "potion";
     }
+
+    public int getPlusHealth() {
+        return plusHealth;
+    }
 }
