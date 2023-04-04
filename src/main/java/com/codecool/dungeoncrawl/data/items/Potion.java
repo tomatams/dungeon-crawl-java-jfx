@@ -10,7 +10,7 @@ public class Potion extends Item{
         super(name, cell);
     }
 
-    @Override
+
     public String getTileName() {
         return "potion";
     }
