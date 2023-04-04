@@ -33,7 +33,13 @@ public class Ghost extends Actor{
                 break;
         }
         Cell cell = this.getCell();
-        Cell nextCell = cell.getNeighbor(dx, dy);
+        Cell nextCell;
+        try {
+            nextCell = cell.getNeighbor(dx, dy);
+        } catch (Exception e) {
+            nextCell = cell.getNeighbor(-dx, -dy);
+            System.out.println(e);
+        }
         if (nextCell.getActor() == null){
             cell.setActor(null);
             nextCell.setActor(this);
