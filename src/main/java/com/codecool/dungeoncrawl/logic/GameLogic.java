@@ -33,9 +33,9 @@ public class GameLogic {
     }
     public String getPlayerItemList(){
         StringBuilder stringBuilder = new StringBuilder();
-        for (Map.Entry<Item, Integer> set :
+        for (Map.Entry<String, Integer> set :
                 map.getPlayer().getItemList().entrySet()) {
-            stringBuilder.append(set.getKey() + " : " + set.getValue());
+            stringBuilder.append(set.getKey() + " : " + set.getValue() + " ");
         }
         return stringBuilder.toString();
     }

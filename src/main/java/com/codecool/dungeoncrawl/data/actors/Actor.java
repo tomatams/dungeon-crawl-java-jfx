@@ -29,7 +29,7 @@ public abstract class Actor implements Drawable {
     }
 
     public void pickUpItem(Item item){}
-    public Map<Item, Integer> getItemList() {
+    public Map<String, Integer> getItemList() {
         return null;
     }
 

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Player extends Actor {
-    Map<Item, Integer> itemList;
+    Map<String, Integer> itemList;
     public Player(Cell cell) {
         super(cell);
         itemList = new HashMap<>();
@@ -18,10 +18,11 @@ public class Player extends Actor {
     }
     @Override
     public void pickUpItem (Item item) {
-        itemList.put(item, itemList.getOrDefault(item, 0) + 1);
+        //itemList.put(item, itemList.getOrDefault(item, 0) + 1);
+        itemList.merge(item.toString(), 1, (a, b) ->a + b);
     }
 
-    public Map<Item, Integer> getItemList() {
+    public Map<String, Integer> getItemList() {
         return itemList;
     }
 }
