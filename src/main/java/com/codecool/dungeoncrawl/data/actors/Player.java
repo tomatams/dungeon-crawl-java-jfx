@@ -4,23 +4,26 @@ import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.items.Item;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Player extends Actor {
-    List<Item> itemList;
+    Map<Item, Integer> itemList;
     public Player(Cell cell) {
         super(cell);
-        itemList = new ArrayList<>();
+        itemList = new HashMap<>();
     }
 
     public String getTileName() {
         return "player";
     }
-
+    @Override
     public void pickUpItem (Item item) {
-        itemList.add(item);
+        itemList.put(item, itemList.getOrDefault(item, 0) + 1);
     }
-    public List<Item> getItemList() {
+
+    public Map<Item, Integer> getItemList() {
         return itemList;
     }
 }

@@ -3,6 +3,8 @@ package com.codecool.dungeoncrawl.data.items;
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.Drawable;
 
+import java.util.Map;
+
 public abstract class Item implements Drawable {
     private String name;
     private Cell cell;
@@ -18,7 +20,7 @@ public abstract class Item implements Drawable {
     }
 
     public void onPickUp() {
-
+        cell.getActor().pickUpItem(this);
     }
 
     public Cell getCell() {
@@ -32,5 +34,6 @@ public abstract class Item implements Drawable {
     public int getY() {
         return cell.getY();
     }
+
 
 }

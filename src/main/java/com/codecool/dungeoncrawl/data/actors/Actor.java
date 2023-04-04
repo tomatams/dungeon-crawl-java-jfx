@@ -3,6 +3,9 @@ package com.codecool.dungeoncrawl.data.actors;
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Drawable;
+import com.codecool.dungeoncrawl.data.items.Item;
+
+import java.util.Map;
 
 public abstract class Actor implements Drawable {
     private Cell cell;
@@ -20,6 +23,14 @@ public abstract class Actor implements Drawable {
             nextCell.setActor(this);
             cell = nextCell;
         }
+        if (cell.getItem() != null){
+            cell.getItem().onPickUp();
+        }
+    }
+
+    public void pickUpItem(Item item){}
+    public Map<Item, Integer> getItemList() {
+        return null;
     }
 
     public int getHealth() {
