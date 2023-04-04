@@ -42,12 +42,12 @@ public class MapLoader {
                             cell.setType(CellType.FLOOR);
                             map.setPlayer(new Player(cell));
                             break;
-                        case 'H':
+                        /*case 'H':
                             cell.setType(CellType.HEALTH);
                             break;
                         case 'K':
                             cell.setType(CellType.KEY);
-                            break;
+                            break;*/
                         default:
                             throw new RuntimeException("Unrecognized character: '" + line.charAt(x) + "'");
                     }

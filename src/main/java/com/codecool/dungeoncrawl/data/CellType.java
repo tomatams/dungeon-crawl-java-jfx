@@ -3,9 +3,7 @@ package com.codecool.dungeoncrawl.data;
 public enum CellType {
     EMPTY("empty"),
     FLOOR("floor"),
-    WALL("wall"),
-    HEALTH("health"),
-    KEY("key");
+    WALL("wall");
 
     private final String tileName;
 
