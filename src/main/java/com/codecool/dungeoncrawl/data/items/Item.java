@@ -46,4 +46,9 @@ public abstract class Item implements Drawable {
     public boolean isPickedUp() {
         return isPickedUp;
     }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }
