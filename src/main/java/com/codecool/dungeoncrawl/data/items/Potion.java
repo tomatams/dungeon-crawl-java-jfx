@@ -10,8 +10,12 @@ public class Potion extends Item{
         super(name, cell);
     }
 
-
+    @Override
     public String getTileName() {
-        return "potion";
+        return super.isPickedUp()? "floor" : "potion";
+    }
+
+    public int getPlusHealth() {
+        return plusHealth;
     }
 }

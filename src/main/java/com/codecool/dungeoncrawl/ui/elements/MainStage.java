@@ -29,4 +29,8 @@ public class MainStage {
     public void setHealthLabelText(String text) {
         this.statusPane.setHealthValue(text);
     }
+
+    public void setItemLabelText(String text){
+        this.statusPane.setItemValueInInventory(text);
+    }
 }
