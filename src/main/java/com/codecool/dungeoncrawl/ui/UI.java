@@ -1,6 +1,7 @@
 package com.codecool.dungeoncrawl.ui;
 
 import com.codecool.dungeoncrawl.data.Cell;
+import com.codecool.dungeoncrawl.data.actors.Actor;
 import com.codecool.dungeoncrawl.data.actors.Player;
 import com.codecool.dungeoncrawl.logic.GameLogic;
 import com.codecool.dungeoncrawl.ui.elements.MainStage;
@@ -12,6 +13,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public class UI {
@@ -50,13 +53,17 @@ public class UI {
     }
 
     public void moveMonsters() {
+        List<Actor> actors = new ArrayList<>();
         for (int x = 0; x < logic.getMapWidth(); x++) {
             for (int y = 0; y < logic.getMapHeight(); y++) {
                 Cell cell = logic.getCell(x, y);
                 if (cell.getActor() != null && !(cell.getActor() instanceof Player)) {
-                    cell.getActor().move();
+                    actors.add(cell.getActor());
                 }
             }
+        }
+        for (Actor actor : actors) {
+            actor.move();
         }
     }
 

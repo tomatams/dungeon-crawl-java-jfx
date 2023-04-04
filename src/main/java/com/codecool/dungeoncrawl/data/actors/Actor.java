@@ -27,7 +27,7 @@ public abstract class Actor implements Drawable {
         if (!nextCell.getType().equals(CellType.WALL) && nextCell.getActor() == null){
             cell.setActor(null);
             nextCell.setActor(this);
-            cell = nextCell;
+            this.setCell(nextCell);
         }
     }
 
@@ -37,6 +37,9 @@ public abstract class Actor implements Drawable {
 
     public Cell getCell() {
         return cell;
+    }
+    public void setCell(Cell cell) {
+        this.cell = cell;
     }
 
     public int getX() {
