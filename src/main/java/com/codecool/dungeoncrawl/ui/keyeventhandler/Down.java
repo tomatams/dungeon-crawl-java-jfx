@@ -4,12 +4,16 @@ import com.codecool.dungeoncrawl.data.GameMap;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Down implements KeyHandler {
-    public static final KeyCode code = KeyCode.DOWN;
+    public static final List<KeyCode> code = Arrays.asList(KeyCode.DOWN, KeyCode.S) ;
 
     @Override
     public void perform(KeyEvent event, GameMap map) {
-        if (code.equals(event.getCode()))
+        if (code.contains(event.getCode()))
             map.getPlayer().move(0, 1);
     }
 }
