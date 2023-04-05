@@ -34,11 +34,6 @@ public abstract class Actor implements Drawable {
         }
     }
 
-    public void pickUpItem(Item item){}
-    public Map<String, Integer> getItemList() {
-        return null;
-    }
-
     public int getHealth() {
         return health;
     }
