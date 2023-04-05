@@ -48,24 +48,9 @@ public class UI {
         for (KeyHandler keyHandler : keyHandlers) {
             keyHandler.perform(keyEvent, logic.getMap());
         }
-        moveMonsters();
         refresh();
     }
 
-    public void moveMonsters() {
-        List<Actor> actors = new ArrayList<>();
-        for (int x = 0; x < logic.getMapWidth(); x++) {
-            for (int y = 0; y < logic.getMapHeight(); y++) {
-                Cell cell = logic.getCell(x, y);
-                if (cell.getActor() != null && !(cell.getActor() instanceof Player)) {
-                    actors.add(cell.getActor());
-                }
-            }
-        }
-        for (Actor actor : actors) {
-            actor.move();
-        }
-    }
 
     public void refresh() {
         context.setFill(Color.BLACK);

@@ -4,9 +4,10 @@ import com.codecool.dungeoncrawl.data.Cell;
 
 import java.util.Random;
 
-public class Scorpion extends Actor{
+public class Scorpion extends Enemy{
     private final static int BASE_HEALTH = 15;
     private final static int BASE_DAMAGE = 2;
+    private int[][] directions = {{0,0}};
     private Random random = new Random();
     public Scorpion(Cell cell) {
         super(cell);

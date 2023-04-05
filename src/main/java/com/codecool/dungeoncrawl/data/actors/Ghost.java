@@ -5,39 +5,26 @@ import com.codecool.dungeoncrawl.data.CellType;
 
 import java.util.Random;
 
-public class Ghost extends Actor{
-    private final static int baseHealth = 20;
-    private final static int baseDamage = 1;
+public class Ghost extends Enemy{
+    private final static int BASE_HEALTH = 20;
+    private final static int BASE_DAMAGE = 1;
+    private int[][] directions = {{1,0},{0,1},{0,-1},{-1,0},{0,0}};
     private Random random = new Random();
     public Ghost(Cell cell) {
-        super(cell, baseHealth, baseDamage);
+        super(cell);
+        this.setHealth(BASE_HEALTH);
+        this.setDamage(BASE_DAMAGE);
     }
 
     @Override
-    public void move() {
-        int direction = random.nextInt(5);
-        int dx = 0;
-        int dy = 0;
-        switch (direction) {
-            case 1:
-                dx = 1;
-                break;
-            case 2:
-                dx = -1;
-                break;
-            case 3:
-                dy = 1;
-                break;
-            case 4:
-                dy = -1;
-                break;
-        }
+    public void randomMove() {
         Cell cell = this.getCell();
         Cell nextCell;
+        int[] randomDirection = directions[random.nextInt(directions.length)];
         try {
-            nextCell = cell.getNeighbor(dx, dy);
+            nextCell = cell.getNeighbor(randomDirection[0], randomDirection[1]);
         } catch (Exception e) {
-            nextCell = cell.getNeighbor(-dx, -dy);
+            nextCell = cell.getNeighbor(-randomDirection[0], -randomDirection[1]);
             System.out.println(e);
         }
         if (nextCell.getActor() == null){

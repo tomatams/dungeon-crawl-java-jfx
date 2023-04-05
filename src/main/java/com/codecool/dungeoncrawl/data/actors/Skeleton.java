@@ -7,6 +7,7 @@ import java.util.Random;
 public class Skeleton extends Enemy {
     private final static int BASE_HEALTH = 10;
     private final static int BASE_DAMAGE = 2;
+    private int[][] directions = {{1,0},{0,1},{0,-1},{-1,0},{0,0}};
     private Random random = new Random();
     public Skeleton(Cell cell) {
         super(cell);
@@ -14,12 +15,6 @@ public class Skeleton extends Enemy {
         this.setDamage(BASE_DAMAGE);
     }
 
-
-    public void move() {
-        int[][] directions = {{1,0},{0,1},{0,-1},{-1,0},{0,0}};
-        int[] randomDirection = directions[random.nextInt(directions.length)];
-        super.move(randomDirection[0],randomDirection[1]);
-    }
     @Override
     public String getTileName() {
         return "skeleton";

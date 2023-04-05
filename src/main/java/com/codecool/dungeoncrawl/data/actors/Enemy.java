@@ -9,7 +9,6 @@ public abstract class Enemy extends Actor{
     Random random;
 
     public void randomMove() {
-        int[][] directions = {{1,0},{0,1},{0,-1},{-1,0},{0,0}};
         int[] randomDirection = directions[random.nextInt(directions.length)];
         super.move(randomDirection[0],randomDirection[1]);
     }
