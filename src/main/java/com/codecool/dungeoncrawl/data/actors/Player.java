@@ -14,9 +14,10 @@ public class Player extends Actor {
     private final static int BASE_HEALTH = 15;
     private final static int BASE_DAMAGE = 5;
     
-    public Player(Cell cell) {
+    public Player(String playerName, Cell cell) {
         super(cell, BASE_HEALTH, BASE_DAMAGE);
         itemList = new HashMap<>();
+        this.playerName = playerName;
     }
 
     public String getTileName() {
