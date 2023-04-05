@@ -32,11 +32,11 @@ public class GameLogic {
         }
     }
 
-    public double getMapWidth() {
+    public int getMapWidth() {
         return map.get(currentLevel).getWidth();
     }
 
-    public double getMapHeight() {
+    public int getMapHeight() {
         return map.get(currentLevel).getHeight();
     }
 
@@ -45,6 +45,10 @@ public class GameLogic {
 
     public Cell getCell(int x, int y) {
         return map.get(currentLevel).getCell(x, y);
+    }
+
+    public Cell getPlayerCell() {
+        return map.get(currentLevel).getPlayer().getCell();
     }
 
     public String getPlayerHealth() {
