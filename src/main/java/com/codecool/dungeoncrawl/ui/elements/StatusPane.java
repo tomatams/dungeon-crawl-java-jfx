@@ -20,6 +20,8 @@ public class StatusPane {
 
     public StatusPane() {
         ui = new GridPane();
+        playerNameTextLabel = new Label("PlayerName: ");
+        playerNameValueLabel = new Label();
         healthTextLabel = new Label("Health: ");
         healthValueLabel = new Label();
         itemTextInInventory = new Label("Items: ");
@@ -31,11 +33,14 @@ public class StatusPane {
         ui.setPrefWidth(RIGHT_PANEL_WIDTH);
         ui.setPadding(new Insets(RIGHT_PANEL_PADDING));
 
-        ui.add(healthTextLabel, 1, 0);
-        ui.add(healthValueLabel, 2, 0);
+        ui.add(playerNameTextLabel, 1, 1);
+        ui.add(playerNameValueLabel, 0, 1);
 
-        ui.add(itemTextInInventory, 1, 2);
-        ui.add(itemValueInInventory, 2, 2);
+        ui.add(healthTextLabel, 1, 2);
+        ui.add(healthValueLabel, 2, 2);
+
+        ui.add(itemTextInInventory, 1, 3);
+        ui.add(itemValueInInventory, 2, 3);
 
         BorderPane borderPane = new BorderPane();
         borderPane.setRight(ui);
@@ -48,5 +53,9 @@ public class StatusPane {
 
     public void setItemValueInInventory(String text) {
         this.itemValueInInventory.setText(text);
+    }
+
+    public void setPlayerNameValueLabel(String text) {
+        this.playerNameValueLabel.setText(text);
     }
 }
