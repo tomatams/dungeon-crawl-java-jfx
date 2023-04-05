@@ -22,7 +22,6 @@ public class Player extends Actor {
     }
     @Override
     public void pickUpItem (Item item) {
-        //itemList.put(item, itemList.getOrDefault(item, 0) + 1);
         itemList.merge(item.toString(), 1, (a, b) ->a + b);
     }
 
