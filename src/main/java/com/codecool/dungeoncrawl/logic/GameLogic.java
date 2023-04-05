@@ -2,8 +2,10 @@ package com.codecool.dungeoncrawl.logic;
 
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.GameMap;
+import com.codecool.dungeoncrawl.data.actors.Enemy;
 import com.codecool.dungeoncrawl.data.items.Item;
 
+import java.util.List;
 import java.util.Map;
 
 public class GameLogic {
@@ -44,5 +46,10 @@ public class GameLogic {
         return map;
     }
 
-
+    public void moveAllEnemies() {
+        List<Enemy> enemies = map.getAllEnemies();
+        for (Enemy enemy: enemies) {
+            enemy.randomMove();
+        }
+    }
 }

@@ -13,6 +13,8 @@ public class Scorpion extends Enemy{
         super(cell);
         this.setHealth(BASE_HEALTH);
         this.setDamage(BASE_DAMAGE);
+        this.setDirections(directions);
+        this.setRandom(random);
     }
 
     @Override

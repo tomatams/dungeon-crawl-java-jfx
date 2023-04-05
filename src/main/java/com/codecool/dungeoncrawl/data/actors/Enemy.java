@@ -17,4 +17,11 @@ public abstract class Enemy extends Actor{
         super(cell);
     }
 
+    public void setDirections(int[][] directions) {
+        this.directions = directions;
+    }
+
+    public void setRandom(Random random) {
+        this.random = random;
+    }
 }
