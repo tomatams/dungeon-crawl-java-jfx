@@ -33,6 +33,24 @@ public class Player extends Actor {
         itemList.merge(item.toString(), 1, (a, b) ->a + b);
     }
 
+    @Override
+    public void move(int dx, int dy) {
+        onDoorCollide(dx, dy);
+        super.move(dx, dy);
+    }
+
+    private void onDoorCollide(int dx, int dy) {
+        Cell nextCell = super.getCell().getNeighbor(dx, dy);
+        if (nextCell.getDoor() != null) {
+            if (nextCell.getDoor().getTileName().equals("door-closed")) {
+                if(itemList.containsKey("Key") && itemList.get("Key") >= 1) {
+                    itemList.merge("Key", 1, (original, value) -> original - value);
+                    super.getCell().getGameMap().getDoor().open();
+                }
+            }
+        }
+    }
+
     public Map<String, Integer> getItemList() {
         return itemList;
     }
