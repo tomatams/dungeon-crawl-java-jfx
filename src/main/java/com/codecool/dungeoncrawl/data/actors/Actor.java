@@ -32,7 +32,6 @@ public abstract class Actor implements Drawable {
             nextCell.setActor(this);
             this.setCell(nextCell);
         }
-
     }
 
     public void pickUpItem(Item item){}
