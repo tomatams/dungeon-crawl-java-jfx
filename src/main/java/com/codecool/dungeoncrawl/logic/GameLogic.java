@@ -7,10 +7,7 @@ import com.codecool.dungeoncrawl.data.actors.Enemy;
 
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -30,6 +27,7 @@ public class GameLogic {
                 .filter(file -> !file.isDirectory())
                 .map(File::getName)
                 .collect(Collectors.toList());
+        Collections.sort(listOfLevels);
         for (final String fileEntry : listOfLevels) {
             this.map.add(MapLoader.loadMap("/levels/" + fileEntry));
         }
