@@ -31,6 +31,7 @@ public class Player extends Actor {
         Cell nextCell = super.getCell().getNeighbor(dx, dy);
         onDoorCollide(nextCell);
         onStairCollide(nextCell);
+        attack(nextCell);
         super.move(dx, dy);
         if (getCell().getItem() != null){
             getCell().getItem().onPickUp();
@@ -56,6 +57,20 @@ public class Player extends Actor {
     private void onStairCollide(Cell nextCell) {
         if (nextCell.getType() == CellType.STAIR) {
             GameLogic.nextLevel();
+        }
+    }
+
+    private void attack(Cell nextCell) {
+        Actor nextActor = nextCell.getActor();
+        if (nextActor != null) {
+            if(nextActor instanceof Enemy) {
+                int enemyHealth = nextActor.getHealth();
+                nextActor.addHealth(-super.getDamage());
+                super.addHealth(-nextActor.getDamage());
+
+                System.out.println("Enemy health: " + enemyHealth + " -> " + nextActor.getHealth());
+                System.out.println("Own health: " + super.getHealth() +" -> " + super.getHealth());
+            }
         }
     }
 
