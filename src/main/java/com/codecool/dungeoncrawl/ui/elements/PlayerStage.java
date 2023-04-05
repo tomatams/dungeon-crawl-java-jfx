@@ -1,5 +1,7 @@
 package com.codecool.dungeoncrawl.ui.elements;
 
+import com.codecool.dungeoncrawl.logic.Game;
+import com.codecool.dungeoncrawl.logic.GameLogic;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -28,14 +30,12 @@ public class PlayerStage {
         this.playerScene = playerScene;
     }
 
-
-    public void initPlayerStage(MainStage mainStage, Stage primaryStage) {
+    public void initPlayerStage(MainStage mainStage, Stage primaryStage, GameLogic logic) {
         // set title for the stage
         Stage stage = new Stage();
-        stage.setTitle("Add a name to your character!");
 
         // create a textfield
-        TextField textField = new TextField();
+        TextField textField = new TextField("Add a name to your character!");
 
         // create a stack pane
         StackPane stackPane = new StackPane();
@@ -57,10 +57,10 @@ public class PlayerStage {
         submit.setOnAction(new EventHandler() {
             @Override
             public void handle(Event arg0) {
-                System.out.println(textField.getText());
-                playerName = textField.getText();
-                primaryStage.setScene(mainStage.getScene());
+                setPlayerName(textField.getText());
+                logic.getMap().getPlayer().setPlayerName(playerName);
                 mainStage.setPlayerNameLabelText(playerName);
+                primaryStage.setScene(mainStage.getScene());
                 stage.close();
             }
         });

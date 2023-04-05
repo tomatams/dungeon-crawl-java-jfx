@@ -40,10 +40,10 @@ public class UI {
     }
 
     public void setUpPain(Stage primaryStage) {
-        playerStage.initPlayerStage(mainStage, primaryStage);
+        playerStage.initPlayerStage(mainStage, primaryStage, logic);
         Scene scene = mainStage.getScene();
         primaryStage.setScene(playerStage.getPlayerScene());
-        logic.setup(playerStage);
+        logic.setup();
         refresh();
         scene.setOnKeyPressed(this::onKeyPressed);
     }

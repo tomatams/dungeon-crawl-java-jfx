@@ -22,8 +22,7 @@ public class GameLogic {
         return map.getHeight();
     }
 
-    public void setup(PlayerStage playerStage) {
-        getMap().getPlayer().setPlayerName(playerStage.getPlayerName());
+    public void setup() {
     }
 
     public Cell getCell(int x, int y) {
