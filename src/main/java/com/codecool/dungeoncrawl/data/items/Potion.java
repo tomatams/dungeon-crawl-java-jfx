@@ -12,7 +12,7 @@ public class Potion extends Item{
 
     @Override
     public String getTileName() {
-        return super.isPickedUp()? "floor" : "potion";
+        return "potion";
     }
 
     public int getPlusHealth() {
