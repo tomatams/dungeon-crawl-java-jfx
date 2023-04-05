@@ -34,7 +34,7 @@ public class PlayerStage {
         Stage stage = new Stage();
 
         // create a textfield
-        TextField textField = new TextField("Add a name to your character!");
+        TextField textField = new TextField("Lajos");
 
         // create a stack pane
         StackPane stackPane = new StackPane();
