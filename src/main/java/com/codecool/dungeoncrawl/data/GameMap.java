@@ -3,18 +3,22 @@ package com.codecool.dungeoncrawl.data;
 import com.codecool.dungeoncrawl.data.actors.Player;
 import com.codecool.dungeoncrawl.data.doors.Door;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GameMap {
     private int width;
     private int height;
     private Cell[][] cells;
 
     private Player player;
-    private Door door;
+    private List<Door> door;
 
 
     public GameMap(int width, int height, CellType defaultCellType) {
         this.width = width;
         this.height = height;
+        this.door = new ArrayList<Door>();
         cells = new Cell[width][height];
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
@@ -31,9 +35,9 @@ public class GameMap {
         this.player = player;
     }
 
-    public void setDoor(Door door) { this.door = door; }
+    public void addDoor(Door door) { this.door.add(door); }
 
-    public Door getDoor() { return this.door; }
+    public List<Door> getDoor() { return this.door; }
 
     public Player getPlayer() {
         return player;
