@@ -13,6 +13,7 @@ import java.util.Map;
 
 public class Player extends Actor {
 
+    private String playerName;
     private Map<String, Integer> itemList;
     private final static int BASE_HEALTH = 15;
     private final static int BASE_DAMAGE = 5;
@@ -76,5 +77,13 @@ public class Player extends Actor {
 
     public Map<String, Integer> getItemList() {
         return itemList;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
     }
 }

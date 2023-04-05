@@ -33,4 +33,8 @@ public class MainStage {
     public void setItemLabelText(String text){
         this.statusPane.setItemValueInInventory(text);
     }
+
+    public void setPlayerNameLabelText(String text){
+        this.statusPane.setPlayerNameValueLabel(text);
+    }
 }

@@ -4,6 +4,7 @@ import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.actors.Actor;
 import com.codecool.dungeoncrawl.data.actors.Player;
 import com.codecool.dungeoncrawl.logic.GameLogic;
+import com.codecool.dungeoncrawl.ui.elements.PlayerStage;
 import com.codecool.dungeoncrawl.ui.elements.MainStage;
 import com.codecool.dungeoncrawl.ui.keyeventhandler.KeyHandler;
 import javafx.scene.Scene;
@@ -24,6 +25,7 @@ public class UI {
     private MainStage mainStage;
     private GameLogic logic;
     private Set<KeyHandler> keyHandlers;
+    private PlayerStage playerStage;
 
 
     public UI(GameLogic logic, Set<KeyHandler> keyHandlers) {
@@ -34,11 +36,13 @@ public class UI {
         this.context = canvas.getGraphicsContext2D();
         this.mainStage = new MainStage(canvas);
         this.keyHandlers = keyHandlers;
+        this.playerStage = new PlayerStage();
     }
 
     public void setUpPain(Stage primaryStage) {
+        playerStage.initPlayerStage(mainStage, primaryStage, logic);
         Scene scene = mainStage.getScene();
-        primaryStage.setScene(scene);
+        primaryStage.setScene(playerStage.getPlayerScene());
         logic.setup();
         refresh();
         scene.setOnKeyPressed(this::onKeyPressed);
