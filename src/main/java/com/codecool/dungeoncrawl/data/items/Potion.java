@@ -21,6 +21,6 @@ public class Potion extends Item{
 
     @Override
     public void onUse() {
-        getCell().getActor().setHealth(plusHealth);
+        getCell().getActor().addHealth(plusHealth);
     }
 }
