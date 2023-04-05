@@ -5,8 +5,10 @@ import com.codecool.dungeoncrawl.logic.GameLogic;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -45,10 +47,14 @@ public class PlayerStage {
 
         //Defining the Submit button
         Button submit = new Button("Submit");
+
+        submit.setTranslateY(30);
+
+
         stackPane.getChildren().add(submit);
 
         // create a scene
-        playerScene = new Scene(stackPane, 300, 100);
+        playerScene = new Scene(stackPane, 200, 100);
 
         // set the scene
         stage.setScene(playerScene);
