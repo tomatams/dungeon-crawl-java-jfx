@@ -1,7 +1,12 @@
 package com.codecool.dungeoncrawl.data.actors;
 
 import com.codecool.dungeoncrawl.data.Cell;
+import com.codecool.dungeoncrawl.data.CellType;
+import com.codecool.dungeoncrawl.data.GameMap;
 import com.codecool.dungeoncrawl.data.items.Item;
+import com.codecool.dungeoncrawl.logic.Game;
+import com.codecool.dungeoncrawl.logic.GameLogic;
+import com.codecool.dungeoncrawl.logic.MapLoader;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +28,9 @@ public class Player extends Actor {
 
     @Override
     public void move(int dx, int dy) {
-        onDoorCollide(dx, dy);
+        Cell nextCell = super.getCell().getNeighbor(dx, dy);
+        onDoorCollide(nextCell);
+        onStairCollide(nextCell);
         super.move(dx, dy);
         if (getCell().getItem() != null){
             getCell().getItem().onPickUp();
@@ -35,8 +42,7 @@ public class Player extends Actor {
     }
 
 
-    private void onDoorCollide(int dx, int dy) {
-        Cell nextCell = super.getCell().getNeighbor(dx, dy);
+    private void onDoorCollide(Cell nextCell) {
         if (nextCell.getDoor() != null) {
             if (nextCell.getDoor().getTileName().equals("door-closed")) {
                 if(itemList.containsKey("Key") && itemList.get("Key") >= 1) {
@@ -44,6 +50,12 @@ public class Player extends Actor {
                     nextCell.getDoor().open();
                 }
             }
+        }
+    }
+
+    private void onStairCollide(Cell nextCell) {
+        if (nextCell.getType() == CellType.STAIR) {
+            GameLogic.nextLevel();
         }
     }
 
