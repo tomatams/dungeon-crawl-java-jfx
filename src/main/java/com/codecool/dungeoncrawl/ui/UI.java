@@ -60,15 +60,14 @@ public class UI {
         for (int x = xStart; x < xStart+DISPLAY_WIDTH; x++) {
             for (int y = yStart; y < yStart+DISPLAY_HEIGHT; y++) {
                 Cell cell = logic.getCell(x, y);
-                System.out.println(cell.getX()+","+cell.getY());
                 if (cell.getActor() != null) {
-                    Tiles.drawTile(context, cell.getActor(), x, y);
+                    Tiles.drawTile(context, cell.getActor(), x-xStart, y-yStart);
                 } else if (cell.getItem() != null) {
-                    Tiles.drawTile(context, cell.getItem(), x, y);
+                    Tiles.drawTile(context, cell.getItem(), x-xStart, y-yStart);
                 } else if (cell.getDoor() != null) {
-                    Tiles.drawTile(context, cell.getDoor(), x, y);
+                    Tiles.drawTile(context, cell.getDoor(), x-xStart, y-yStart);
                 } else {
-                    Tiles.drawTile(context, cell, x, y);
+                    Tiles.drawTile(context, cell, x-xStart, y-yStart);
                 }
             }
         }
