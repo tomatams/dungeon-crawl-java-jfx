@@ -9,15 +9,13 @@ import java.util.Map;
 public class Player extends Actor {
 
     private String playerName;
-
     private Map<String, Integer> itemList;
     private final static int BASE_HEALTH = 15;
     private final static int BASE_DAMAGE = 5;
     
-    public Player(String playerName, Cell cell) {
+    public Player(Cell cell) {
         super(cell, BASE_HEALTH, BASE_DAMAGE);
         itemList = new HashMap<>();
-        this.playerName = playerName;
     }
 
     public String getTileName() {

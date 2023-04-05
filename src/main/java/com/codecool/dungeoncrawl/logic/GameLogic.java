@@ -4,6 +4,7 @@ import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.GameMap;
 
 import java.util.Map;
+import java.util.Scanner;
 
 public class GameLogic {
     private GameMap map;
