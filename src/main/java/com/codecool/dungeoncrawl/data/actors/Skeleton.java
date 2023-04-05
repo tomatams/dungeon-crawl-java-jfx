@@ -2,39 +2,21 @@ package com.codecool.dungeoncrawl.data.actors;
 
 import com.codecool.dungeoncrawl.data.Cell;
 
-import java.util.List;
 import java.util.Random;
 
-public class Skeleton extends Actor {
-    private final static int baseHealth = 10;
-    private final static int baseDamage = 2;
+public class Skeleton extends Enemy {
+    private final static int BASE_HEALTH = 10;
+    private final static int BASE_DAMAGE = 2;
+    private int[][] directions = {{1,0},{0,1},{0,-1},{-1,0},{0,0}};
     private Random random = new Random();
     public Skeleton(Cell cell) {
-        super(cell, baseHealth, baseDamage);
+        super(cell);
+        this.setHealth(BASE_HEALTH);
+        this.setDamage(BASE_DAMAGE);
+        this.setDirections(directions);
+        this.setRandom(random);
     }
 
-    @Override
-    public void move() {
-        int direction = random.nextInt(5);
-        switch (direction) {
-            case 0:
-                super.move(0,0);
-                break;
-            case 1:
-                super.move(1,0);
-                break;
-            case 2:
-                super.move(-1,0);
-                break;
-            case 3:
-                super.move(0,1);
-                break;
-            case 4:
-                super.move(0,-1);
-                break;
-        }
-
-    }
     @Override
     public String getTileName() {
         return "skeleton";
