@@ -18,11 +18,7 @@ public abstract class Item implements Drawable {
         this.isPickedUp = false;
     }
 
-    public void onUse() {
-        if (this.toString().equals("potion")){
-            cell.getActor().setHealth(10);
-        }
-    }
+    public void onUse() {}
 
     public void onPickUp() {
         setPickedUp(true);
