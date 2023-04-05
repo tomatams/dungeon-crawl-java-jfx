@@ -20,6 +20,15 @@ public class Player extends Actor {
     public String getTileName() {
         return "player";
     }
+
+    @Override
+    public void move(int dx, int dy) {
+        super.move(dx, dy);
+        if (getCell().getItem() != null){
+            getCell().getItem().onPickUp();
+        }
+    }
+
     @Override
     public void pickUpItem (Item item) {
         itemList.merge(item.toString(), 1, (a, b) ->a + b);
