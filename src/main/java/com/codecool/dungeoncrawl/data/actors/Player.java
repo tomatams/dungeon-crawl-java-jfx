@@ -9,20 +9,27 @@ import java.util.Map;
 public class Player extends Actor {
 
     private Map<String, Integer> itemList;
-    private final static int baseHealth = 15;
-    private final static int baseDamage = 5;
+    private final static int BASE_HEALTH = 15;
+    private final static int BASE_DAMAGE = 5;
     
     public Player(Cell cell) {
-        super(cell, baseHealth, baseDamage);
+        super(cell, BASE_HEALTH, BASE_DAMAGE);
         itemList = new HashMap<>();
     }
 
     public String getTileName() {
         return "player";
     }
+
     @Override
+    public void move(int dx, int dy) {
+        super.move(dx, dy);
+        if (getCell().getItem() != null){
+            getCell().getItem().onPickUp();
+        }
+    }
+
     public void pickUpItem (Item item) {
-        //itemList.put(item, itemList.getOrDefault(item, 0) + 1);
         itemList.merge(item.toString(), 1, (a, b) ->a + b);
     }
 
