@@ -9,8 +9,9 @@ import java.util.Map;
 
 public abstract class Actor implements Drawable {
     private Cell cell;
-    private int health = 10;
-    private int damage = 2;
+    private int health;
+
+    private int damage;
 
     public Actor(Cell cell) {
         this.cell = cell;
@@ -24,7 +25,6 @@ public abstract class Actor implements Drawable {
         this.damage = damage;
     }
 
-    public void move() {}
     public void move(int dx, int dy) {
         Cell nextCell = cell.getNeighbor(dx, dy);
         if (!nextCell.getType().equals(CellType.WALL) && nextCell.getActor() == null){
@@ -32,12 +32,23 @@ public abstract class Actor implements Drawable {
             nextCell.setActor(this);
             this.setCell(nextCell);
         }
+        if (getHealth() <= 0) {
+            cell.setActor(null);
+        }
     }
 
     public int getHealth() {
         return health;
     }
-
+    public void setHealth(int health) {
+        this.health = health;
+    }
+    public int getDamage() {
+        return damage;
+    }
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
     public Cell getCell() {
         return cell;
     }
@@ -52,8 +63,7 @@ public abstract class Actor implements Drawable {
     public int getY() {
         return cell.getY();
     }
-
-    public void setHealth(int getHealth) {
+    public void addHealth(int getHealth) {
         this.health = health + getHealth;
     }
 }
