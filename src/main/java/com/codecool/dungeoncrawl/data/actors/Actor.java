@@ -32,6 +32,9 @@ public abstract class Actor implements Drawable {
             nextCell.setActor(this);
             this.setCell(nextCell);
         }
+        if (getHealth() <= 0) {
+            cell.setActor(null);
+        }
     }
 
     public int getHealth() {
