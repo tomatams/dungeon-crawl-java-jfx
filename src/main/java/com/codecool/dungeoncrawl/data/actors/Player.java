@@ -41,7 +41,7 @@ public class Player extends Actor {
             if (nextCell.getDoor().getTileName().equals("door-closed")) {
                 if(itemList.containsKey("Key") && itemList.get("Key") >= 1) {
                     itemList.merge("Key", 1, (original, value) -> original - value);
-                    super.getCell().getGameMap().getDoor().open();
+                    nextCell.getDoor().open();
                 }
             }
         }
