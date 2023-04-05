@@ -60,6 +60,7 @@ public class PlayerStage {
                 System.out.println(textField.getText());
                 playerName = textField.getText();
                 primaryStage.setScene(mainStage.getScene());
+                mainStage.setPlayerNameLabelText(playerName);
                 stage.close();
             }
         });

@@ -2,6 +2,7 @@ package com.codecool.dungeoncrawl.logic;
 
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.GameMap;
+import com.codecool.dungeoncrawl.ui.elements.PlayerStage;
 
 import java.util.Map;
 import java.util.Scanner;
@@ -21,7 +22,8 @@ public class GameLogic {
         return map.getHeight();
     }
 
-    public void setup() {
+    public void setup(PlayerStage playerStage) {
+        getMap().getPlayer().setPlayerName(playerStage.getPlayerName());
     }
 
     public Cell getCell(int x, int y) {

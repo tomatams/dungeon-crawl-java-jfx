@@ -43,7 +43,7 @@ public class UI {
         playerStage.initPlayerStage(mainStage, primaryStage);
         Scene scene = mainStage.getScene();
         primaryStage.setScene(playerStage.getPlayerScene());
-        logic.setup();
+        logic.setup(playerStage);
         refresh();
         scene.setOnKeyPressed(this::onKeyPressed);
     }
