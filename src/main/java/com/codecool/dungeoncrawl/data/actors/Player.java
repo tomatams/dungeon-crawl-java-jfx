@@ -39,4 +39,12 @@ public class Player extends Actor {
     public Map<String, Integer> getItemList() {
         return itemList;
     }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
 }
