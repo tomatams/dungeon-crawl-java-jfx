@@ -5,6 +5,7 @@ import com.codecool.dungeoncrawl.data.GameMap;
 import com.codecool.dungeoncrawl.data.actors.Enemy;
 import com.codecool.dungeoncrawl.data.items.Item;
 
+
 import java.util.List;
 import java.util.Map;
 
@@ -33,7 +34,7 @@ public class GameLogic {
     public String getPlayerHealth() {
         return Integer.toString(map.getPlayer().getHealth());
     }
-    public String getPlayerItemList(){
+    public String getPlayersInventory (){
         StringBuilder stringBuilder = new StringBuilder();
         for (Map.Entry<String, Integer> set :
                 map.getPlayer().getItemList().entrySet()) {

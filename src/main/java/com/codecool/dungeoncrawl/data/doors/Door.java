@@ -13,12 +13,12 @@ public class Door implements Drawable {
         this.cell.setDoor(this);
     }
 
-    private void open() {
+    public void open() {
         cell.setType(CellType.FLOOR);
         isOpen = true;
     }
 
-    private void close() {
+    public void close() {
         cell.setType(CellType.WALL);
         isOpen = false;
     }

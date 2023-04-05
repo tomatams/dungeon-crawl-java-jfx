@@ -32,14 +32,6 @@ public abstract class Actor implements Drawable {
             nextCell.setActor(this);
             this.setCell(nextCell);
         }
-        if (cell.getItem() != null){
-            cell.getItem().onPickUp();
-        }
-    }
-
-    public void pickUpItem(Item item){}
-    public Map<String, Integer> getItemList() {
-        return null;
     }
 
     public int getHealth() {
