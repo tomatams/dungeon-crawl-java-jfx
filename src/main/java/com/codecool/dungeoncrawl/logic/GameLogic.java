@@ -43,4 +43,6 @@ public class GameLogic {
     public GameMap getMap() {
         return map;
     }
+
+
 }
