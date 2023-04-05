@@ -23,6 +23,7 @@ public class Player extends Actor {
 
     @Override
     public void move(int dx, int dy) {
+        onDoorCollide(dx, dy);
         super.move(dx, dy);
         if (getCell().getItem() != null){
             getCell().getItem().onPickUp();
@@ -33,11 +34,6 @@ public class Player extends Actor {
         itemList.merge(item.toString(), 1, (a, b) ->a + b);
     }
 
-    @Override
-    public void move(int dx, int dy) {
-        onDoorCollide(dx, dy);
-        super.move(dx, dy);
-    }
 
     private void onDoorCollide(int dx, int dy) {
         Cell nextCell = super.getCell().getNeighbor(dx, dy);
