@@ -3,7 +3,6 @@ package com.codecool.dungeoncrawl.logic;
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.GameMap;
 import com.codecool.dungeoncrawl.data.actors.Enemy;
-import com.codecool.dungeoncrawl.data.items.Item;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -69,7 +68,7 @@ public class GameLogic {
     }
 
     public void moveAllEnemies() {
-        List<Enemy> enemies = map.getAllEnemies();
+        List<Enemy> enemies = map.get(currentLevel).getAllEnemies();
         for (Enemy enemy: enemies) {
             enemy.randomMove();
         }
