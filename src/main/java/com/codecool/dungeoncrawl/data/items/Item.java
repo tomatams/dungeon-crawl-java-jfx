@@ -1,10 +1,7 @@
 package com.codecool.dungeoncrawl.data.items;
 
 import com.codecool.dungeoncrawl.data.Cell;
-import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Drawable;
-
-import java.util.Map;
 
 public abstract class Item implements Drawable {
     private String name;
@@ -20,7 +17,7 @@ public abstract class Item implements Drawable {
 
     public void onUse() {
         if (this.toString().equals("potion")){
-            cell.getActor().setHealth(10);
+            cell.getActor().addHealth(10);
         }
     }
 
