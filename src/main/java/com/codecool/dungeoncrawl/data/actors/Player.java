@@ -8,6 +8,8 @@ import java.util.Map;
 
 public class Player extends Actor {
 
+    private String playerName;
+
     private Map<String, Integer> itemList;
     private final static int BASE_HEALTH = 15;
     private final static int BASE_DAMAGE = 5;
