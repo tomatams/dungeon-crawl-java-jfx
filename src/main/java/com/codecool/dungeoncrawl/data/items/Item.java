@@ -3,6 +3,7 @@ package com.codecool.dungeoncrawl.data.items;
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Drawable;
+import com.codecool.dungeoncrawl.data.actors.Player;
 
 import java.util.Map;
 
@@ -20,8 +21,10 @@ public abstract class Item implements Drawable {
 
     public void onPickUp() {
         cell.setItem(null);
-        cell.getActor().pickUpItem(this);
-        onUse();
+        if(cell.getActor() instanceof Player player){
+            player.pickUpItem(this);
+            onUse();
+        }
     }
 
     public Cell getCell() {
