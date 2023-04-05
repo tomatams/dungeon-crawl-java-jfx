@@ -1,14 +1,11 @@
 package com.codecool.dungeoncrawl.ui.elements;
 
-import com.codecool.dungeoncrawl.logic.Game;
 import com.codecool.dungeoncrawl.logic.GameLogic;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -49,8 +46,6 @@ public class PlayerStage {
         Button submit = new Button("Submit");
 
         submit.setTranslateY(30);
-
-
         stackPane.getChildren().add(submit);
 
         // create a scene
