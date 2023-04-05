@@ -34,7 +34,7 @@ public class StatusPane {
         ui.setPadding(new Insets(RIGHT_PANEL_PADDING));
 
         ui.add(playerNameTextLabel, 1, 1);
-        ui.add(playerNameValueLabel, 0, 1);
+        ui.add(playerNameValueLabel, 2, 1);
 
         ui.add(healthTextLabel, 1, 2);
         ui.add(healthValueLabel, 2, 2);
