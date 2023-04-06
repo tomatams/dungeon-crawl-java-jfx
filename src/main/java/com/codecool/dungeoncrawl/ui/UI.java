@@ -33,6 +33,7 @@ public class UI {
                 DISPLAY_HEIGHT * Tiles.DRAW_WIDTH);
         this.logic = logic;
         this.context = canvas.getGraphicsContext2D();
+        context.setImageSmoothing(false);
         this.mainStage = new MainStage(canvas);
         this.keyHandlers = keyHandlers;
         this.playerStage = new PlayerStage();

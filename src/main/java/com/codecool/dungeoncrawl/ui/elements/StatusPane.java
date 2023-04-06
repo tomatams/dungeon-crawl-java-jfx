@@ -7,7 +7,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 
 public class StatusPane {
-    public static final int RIGHT_PANEL_WIDTH = 350;
+    public static final int RIGHT_PANEL_WIDTH = 550;
     public static final int RIGHT_PANEL_PADDING = 10;
     private final int FONT_SIZE = 35;
     private GridPane ui;
