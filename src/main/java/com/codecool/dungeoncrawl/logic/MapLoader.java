@@ -16,6 +16,8 @@ import java.util.Scanner;
 
 public class MapLoader {
 
+    private static Player player = null;
+
     public static GameMap loadMap(String level) {
         InputStream is = MapLoader.class.getResourceAsStream(level);
         Scanner scanner = new Scanner(is);
@@ -46,7 +48,10 @@ public class MapLoader {
                             break;
                         case '@':
                             cell.setType(CellType.FLOOR);
-                            map.setPlayer(new Player(cell));
+                            if (player == null){
+                                player = new Player(cell);
+                            }
+                            map.setPlayer(player);
                             break;
                         case 'H':
                             cell.setType(CellType.FLOOR);
