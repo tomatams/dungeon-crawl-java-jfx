@@ -61,23 +61,33 @@ public class UI {
         context.setFill(Color.BLACK);
         context.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         Cell playerCell = logic.getPlayerCell();
-        int xStart = Math.min(Math.max(0, playerCell.getX()-DISPLAY_WIDTH/2),logic.getMapWidth()-DISPLAY_WIDTH);
-        int yStart = Math.min(Math.max(0, playerCell.getY()-DISPLAY_HEIGHT/2),logic.getMapHeight()-DISPLAY_HEIGHT);
-        for (int x = xStart; x < xStart+DISPLAY_WIDTH; x++) {
-            for (int y = yStart; y < yStart+DISPLAY_HEIGHT; y++) {
+        int xStart = clamp(playerCell.getX()-DISPLAY_WIDTH/2, 0, logic.getMapWidth()-DISPLAY_WIDTH);
+        int yStart = clamp(playerCell.getY()-DISPLAY_HEIGHT/2, 0, logic.getMapHeight()-DISPLAY_HEIGHT);
+        drawMap(xStart, yStart);
+        mainStage.setHealthLabelText(logic.getPlayerHealth());
+        mainStage.setItemLabelText(logic.getPlayersInventory());
+    }
+
+    private void drawMap(int xStart, int yStart) {
+        for (int x = xStart; x < xStart +DISPLAY_WIDTH; x++) {
+            for (int y = yStart; y < yStart +DISPLAY_HEIGHT; y++) {
                 Cell cell = logic.getCell(x, y);
                 if (cell.getActor() != null) {
-                    Tiles.drawTile(context, cell.getActor(), x-xStart, y-yStart);
+                    Tiles.drawTile(context, cell.getActor(), x- xStart, y- yStart);
                 } else if (cell.getItem() != null) {
-                    Tiles.drawTile(context, cell.getItem(), x-xStart, y-yStart);
+                    Tiles.drawTile(context, cell.getItem(), x- xStart, y- yStart);
                 } else if (cell.getDoor() != null) {
-                    Tiles.drawTile(context, cell.getDoor(), x-xStart, y-yStart);
+                    Tiles.drawTile(context, cell.getDoor(), x- xStart, y- yStart);
                 } else {
-                    Tiles.drawTile(context, cell, x-xStart, y-yStart);
+                    Tiles.drawTile(context, cell, x- xStart, y- yStart);
                 }
             }
         }
-        mainStage.setHealthLabelText(logic.getPlayerHealth());
-        mainStage.setItemLabelText(logic.getPlayersInventory());
+    }
+
+    public <T extends Comparable<T>> T clamp(T val, T min, T max) {
+        if (val.compareTo(min) < 0) return min;
+        else if (val.compareTo(max) > 0) return max;
+        else return val;
     }
 }
