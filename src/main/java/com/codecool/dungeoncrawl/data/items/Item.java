@@ -14,13 +14,10 @@ public abstract class Item implements Drawable {
         this.cell.setItem(this);
     }
 
-    public void onUse() {}
-
     public void onPickUp() {
         cell.setItem(null);
         if(cell.getActor() instanceof Player player){
             player.pickUpItem(this);
-            onUse();
         }
     }
 
