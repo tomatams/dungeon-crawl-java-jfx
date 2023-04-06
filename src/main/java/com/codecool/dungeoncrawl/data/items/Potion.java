@@ -19,7 +19,6 @@ public class Potion extends Item{
         return plusHealth;
     }
 
-    @Override
     public void onUse() {
         getCell().getActor().addHealth(plusHealth);
     }
