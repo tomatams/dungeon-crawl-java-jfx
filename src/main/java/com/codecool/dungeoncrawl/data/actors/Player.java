@@ -15,7 +15,7 @@ public class Player extends Actor {
 
     private String playerName;
     private static Map<String, Integer> itemList;
-    private final static int BASE_HEALTH = 15;
+    private final static int BASE_HEALTH = 20;
     private final static int BASE_DAMAGE = 5;
     
     public Player(Cell cell) {

@@ -4,10 +4,12 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
 
 public class StatusPane {
-    public static final int RIGHT_PANEL_WIDTH = 200;
+    public static final int RIGHT_PANEL_WIDTH = 350;
     public static final int RIGHT_PANEL_PADDING = 10;
+    private final int FONT_SIZE = 35;
     private GridPane ui;
     private Label healthTextLabel;
     private Label healthValueLabel;
@@ -21,11 +23,17 @@ public class StatusPane {
     public StatusPane() {
         ui = new GridPane();
         playerNameTextLabel = new Label("PlayerName: ");
+        playerNameTextLabel.setFont(new Font("Serif", FONT_SIZE));
         playerNameValueLabel = new Label();
+        playerNameValueLabel.setFont(new Font("Serif", FONT_SIZE));
         healthTextLabel = new Label("Health: ");
+        healthTextLabel.setFont(new Font("Serif", FONT_SIZE));
         healthValueLabel = new Label();
+        healthValueLabel.setFont(new Font("Serif", FONT_SIZE));
         itemTextInInventory = new Label("Items: ");
+        itemTextInInventory.setFont(new Font("Serif", FONT_SIZE));
         itemValueInInventory = new Label();
+        itemValueInInventory.setFont(new Font("Serif", FONT_SIZE));
     }
 
     public BorderPane build() {
