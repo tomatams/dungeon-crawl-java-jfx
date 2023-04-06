@@ -71,6 +71,12 @@ public class MapLoader {
                         case '%':
                             cell.setType(CellType.STAIR);
                             break;
+                        case 't':
+                            cell.setType(CellType.TREE);
+                            break;
+                        case ',':
+                            cell.setType(CellType.GRASS);
+                            break;
                         default:
                             throw new RuntimeException("Unrecognized character: '" + line.charAt(x) + "'");
                     }
