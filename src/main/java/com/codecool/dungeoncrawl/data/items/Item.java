@@ -18,8 +18,11 @@ public abstract class Item implements Drawable {
         cell.setItem(null);
         if(cell.getActor() instanceof Player player){
             player.pickUpItem(this);
+            onUse();
         }
     }
+
+    public abstract void onUse();
 
     public Cell getCell() {
         return cell;
