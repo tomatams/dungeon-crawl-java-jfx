@@ -8,7 +8,7 @@ Our task was to create a roguelike game in Java. We have created a dungeon crawl
 - Players can move, fight enemies, collect and interact with some objects
 - Enemies with varied appearance and behavior
 - Distinct ending for victory or defeat
--<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## How to view the project
 
